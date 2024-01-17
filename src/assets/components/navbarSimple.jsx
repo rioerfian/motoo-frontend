@@ -17,9 +17,12 @@ export   function NavbarSimple() {
                 </div>
                 <div className="flex-none">
                     <ul className="">
-                        <li><Link to={"/login"} >
+                    <li>{token ? <Link to={"/dashboard"} >
+                            <button className="btn btn-primary font-bold btn-sm">{user.name}</button>
+                        </Link> : <Link to={"/login"} >
                             <button className="btn btn-primary btn-sm">Login</button>
-                            </Link></li>
+                        </Link>}
+                        </li>
                     </ul>
                 </div>
             </div>

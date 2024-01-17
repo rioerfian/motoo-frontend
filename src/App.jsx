@@ -13,19 +13,19 @@ import { UserAdd } from './assets/pages/dashboard/usersAdd'
 import { UserEdit } from './assets/pages/dashboard/usersEdit'
 import AuthLayout from './assets/layouts/authenticated'
 import NotFoundPage from './assets/pages/system/404'
+import DefaultLayout from './assets/layouts/default'
 
 function App() {
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/home/*" element={<DefaultLayout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/applications/detail/:id" element={<AppDetail />} />
-        <Route
-          path="/dashboard/*" element={<AuthLayout />} />
+        <Route path="/dashboard/*" element={<AuthLayout />} />
+        <Route path="/*" element={<Navigate to="/home" replace />} />
         {/* <Route path="/dashboard/applications/" element={<Applications />} />
         <Route path="/dashboard/applications/add" element={<ApplicationsAdd />} />
         <Route path="/dashboard/applications/edit/:id" element={<ApplicationsEdit />} />

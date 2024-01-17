@@ -15,14 +15,11 @@ export default function LandingPage() {
         });
 
     };
-    //token
-    const token = localStorage.getItem("token");
 
     //run hook useEffect
     useEffect(() => {
         //call method "fetchDataPosts"
         fetchDataApplications();
-        (token ? fetchData() : "")
 
     }, []);
 
@@ -42,55 +39,19 @@ export default function LandingPage() {
         setCurrentPage(newPage);
     };
 
-    const [user, setUser] = useState([]);
 
-    const fetchData = async () => {
-        //set header type Authorization + Bearer token
-        instance.defaults.headers.common['Authorization'] = `Bearer ${token}`
-
-        //fetch user from API
-        await instance.get('/user')
-            .then((response) => {
-
-                //set response user to state
-                setUser(response.data);
-            })
-    }
 
 
     return (
         <>
-            <div className="navbar px-8">
-                <div className="flex-1">
-                    <div className="p-2">
-
-                        <a href="/" className="flex items-center">
-                            <img src="/img/logo.png" className="w-10 mr-2" />
-                            <span className="font-bold text-3xl text-red-600">MO</span>
-                            <span className="font-bold text-3xl text-neutral">TOO</span>
-
-                        </a>
-                    </div>
-                </div>
-                <div className="flex-none">
-                    <ul className="">
-                        <li>{token ? <Link to={"/dashboard"} >
-                            <button className="btn btn-primary font-bold btn-sm">{user.name}</button>
-                        </Link> : <Link to={"/login"} >
-                            <button className="btn btn-primary btn-sm">Login</button>
-                        </Link>}
-                        </li>
-                    </ul>
-                </div>
-            </div>
             <section>
-                <div className="hero min-h-screen -mt-16">
+                <div className="hero min-h-[600px] ">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <img src="/img/hero.png" className="mx-8 max-w-sm md:max-w-lg" />
                         <div>
                             <h1 className="text-5xl font-bold">Monitoring Tools Office</h1>
                             <p className="py-6">This App to display catalogue and monitoring application in Manage Service <a href="https://tailwindcss.com" className="hover:underline">SISI</a> </p>
-                            <button className="btn btn-primary">See all application</button>
+                            <a href="#catalog" className="btn btn-primary">See all application</a>
                             <div className="md:flex mt-16 hidden">
                                 <div className="max-w-screen-xl mx-auto">
                                     <div className="grid gap-2 md:grid-cols-10">
@@ -108,20 +69,21 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            <div className='w-full bg-base-100 '>
+            <div className='w-full'>
                 {currentData.length > 0 ?
-                    <section className="px-4 py-8 my-2 bg-gray-200" id="catalog">
-                        <div className="container mx-auto">
-                            <h1 className="text-3xl font-bold text-center">
+                    <section className="p-6 my-2 bg-gray-200" id="catalog">
+                        <div className="mx-auto p-4">
+                            <h1 className="text-3xl font-bold text-center" >
                                 All Applications
                             </h1>
+                            
                             <h3 className="text-lg text-center">
                                 Our Application was managed by Sinergi Informatika Semen Indonesia
                             </h3>
 
                             <div>
                                 {/* Render your data here using the currentData array */}
-                                <div className="my-8 grid grid-cols-2 gap-2 md:grid-cols-4 lg:grid-cols-5 ">
+                                <div className="my-8 grid grid-cols-2 gap-4 md:grid-cols-5">
 
                                     {currentData.map((applications, index) => (
                                         <ApplicationCard
@@ -157,10 +119,9 @@ export default function LandingPage() {
                                 )}
                             </div>
                         </div>
-                    </section> : <></>}
+                    </section> : <div className="flex justify-center py-20 bg-gray-200"><span className="loading loading-bars loading-lg"></span><span className="text-2xl">&emsp;Loading Data</span></div>}
 
             </div>
-            <Footer />
         </>
     )
 }

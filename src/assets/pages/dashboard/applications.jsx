@@ -184,9 +184,9 @@ export function Applications() {
                 </div>
 
 
-                <div className={(open) ? "hidden md:block lg:w-3/12 shadow-xl p-4 min-h-screen " : "hidden"}>
-                    <div className="flex justify-between pt-2 pb-6">
-                        <div className='text-2xl font-bold'>Detail</div>
+                <div className={(open) ? "hidden md:block lg:w-3/12 shadow-xl px-2 py-4 min-h-screen bg-gray-200" : "hidden"}>
+                    <div className="flex justify-between p-2 rounded-xl bg-gray-200">
+                        <h1 className='text-2xl font-bold'>Detail</h1>
                         {applicationSpecified.id === id && <div className="flex gap-1">
                             <Link to={`edit/${applicationSpecified.id}`}>
                                 <button className="btn btn-warning btn-sm p-1">
@@ -204,15 +204,15 @@ export function Applications() {
 
                     </div>
 
-                    <div role="tablist" className="tabs tabs-boxed mt-4 bg-base-100 ">
+                    <div role="tablist" className="tabs tabs-boxed mt-4 bg-gray-200 ">
                         <input type="radio" name="my_tabs_2" role="tab" className="tab font-bold" aria-label="Spesifikasi" defaultChecked />
-                        <div role="tabpanel" className="tab-content border border-gray-300 px-2">
+                        <div role="tabpanel" className="tab-content border border-secondary px-2">
                             <div className="flex justify-between items-start">
                                 <img src="/img/sig.png" alt="sig" className="h-24" />
                                 {/* {(applicationSpecified.image === null) ? <img src="/img/sig.png" alt="sig" className="h-28" /> : <img src={"/img/" + applicationSpecified.image} className="h-24" />} */}
                             </div>
                             <div className=" ">
-                                <table className="table table-xs mx-2">
+                                <table className="table table-bordered table-xs">
                                     <thead className="hidden">
                                         <tr>
                                             <th>Field</th>
@@ -224,10 +224,10 @@ export function Applications() {
                                         {[[applicationSpecified.url_prod, "url_prod"], [applicationSpecified.url_dev, "url_dev"]].map(
                                             (el) => (
                                                 (el[0] &&
-                                                    <tr className="my-2" key={el}>
-                                                        <td className="font-bold capitalize bg-gray-200">{el[1]}
+                                                    <tr className="my-2 border border-secondary" key={el}>
+                                                        <td className="font-bold capitalize">{el[1]}
                                                         </td>
-                                                        <td className="border border-gray-200">
+                                                        <td className="">
                                                             <Link to={"//" + el[0]} target="_blank" className="italic underline text-primary">
                                                                 {el[0]} 
                                                             </Link>

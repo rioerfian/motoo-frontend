@@ -10,6 +10,7 @@ import AppDetail from "./assets/pages/landingPage/appDetail";
 import AuthLayout from "./assets/layouts/authenticated";
 import { Navigate } from "react-router-dom";
 import { VirtualMachineAdd } from "./assets/pages/dashboard/virtualMachineAdd";
+import LandingPage from "./assets/pages/landingPage";
 
 const routes = [
     {
@@ -77,6 +78,16 @@ const routes = [
           name: "not found",
           path: `/*`,
           element: <Navigate to="/dashboard" replace />,
+        },
+      ],
+    },
+    {
+      layout: "/",
+      pages: [
+        {
+          name: "LANDING PAGE",
+          path: "/",
+          element: <LandingPage />,
         },
       ],
     }

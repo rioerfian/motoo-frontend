@@ -39,7 +39,6 @@ export function Login() {
             //save token to localStorage
             localStorage.setItem('token', response.data.token);
             navigate('/dashboard');
-            console.log(response.data.token)
         } catch (error) {
             // Handle error
             setValidation(error.response.data);
@@ -49,19 +48,17 @@ export function Login() {
 
     return (
         <>
-            <div className="hero min-h-screen bg-gray-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold px-6">&nbsp;</h1>
-                    </div>
-                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="bg-gradient-to-r from-primary to-base-100">&nbsp;</div>
-                        <form className="card-body">
-                            <a  className="flex items-center mb-2">
-                                <img src="/img/logo.png" className="w-12 mr-2" />
+            <div className="hero min-h-screen bg-gradient-to-br from-red-300 to-gray-100">
+
+                <div className="hero-content flex-col ">
+                    <div className="card shrink-0 w-full max-w-sm shadow-xl bg-base-100">
+                        <div className="bg-gradient-to-l from-base-100 to-primary">&nbsp;</div>
+                        <form className="card-body" onSubmit={handleSubmit}>
+                            <div className="flex items-center mb-4">
+                                <img src="/img/logo.png" className="w-14 mr-2" />
                                 <span className="font-bold text-4xl text-primary">MO</span>
                                 <span className="font-bold text-4xl">TOO</span>
-                            </a>
+                            </div>
                             <span className="text-sm italic font-semibold">please login with your email</span>
                             <div className="py-4">
                                 <div className="form-control mb-2">
@@ -72,12 +69,11 @@ export function Login() {
                                         </button>
                                         <input type="email" placeholder="email" className="join-item input w-full input-bordered" name="email" onChange={handleChange} value={data.email} required />
                                     </div>
-                                    {
-                                        validation.email && (
-                                            <div className="text-error">
-                                                {validation.email[0]}
-                                            </div>
-                                        )
+                                    {validation.email && (
+                                        <div className="text-error">
+                                            {validation.email[0]}
+                                        </div>
+                                    )
                                     }
                                 </div>
 
@@ -107,7 +103,7 @@ export function Login() {
 
                             </div>
                             <div className="form-control">
-                                <button className="btn btn-primary" onClick={handleSubmit}>Login</button>
+                                <button className="btn btn-primary" >Login</button>
                             </div>
                         </form>
                     </div>

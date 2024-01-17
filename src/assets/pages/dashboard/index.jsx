@@ -97,9 +97,8 @@ export function Dashboard() {
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <img src="/img/hero.png" className="max-w-sm md:max-w-lg" />
                         <div>
-                            <h1 className="text-5xl font-bold">Monitoring Tools Office</h1>
-                            <p className="py-4">This App to display catalogue and monitoring application in Manage Service <a href="https://tailwindcss.com" className="hover:underline">SISI</a> </p>
-                            {openApp ? <button className="btn btn-primary" onClick={()=>handleOpenApp()}>Hide All Applications</button> : <button className="btn btn-primary" onClick={()=>handleOpenApp()}>See All Application</button>}
+                            <h1 className="text-4xl font-bold py-2">Dashboard Monitoring Tools Office</h1>
+                            {openApp ? <button className="btn btn-secondary" onClick={()=>handleOpenApp()}>Hide All Applications</button> : <button className="btn btn-primary" onClick={()=>handleOpenApp()}>See All Application</button>}
                         
                             
                             <div className="md:flex mt-16 hidden">
@@ -132,7 +131,7 @@ export function Dashboard() {
 
                             <div>
                                 {/* Render your data here using the currentData array */}
-                                <div className="my-8 grid grid-cols-2 gap-2 md:grid-cols-4 lg:grid-cols-5 ">
+                                <div className="my-8 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-5 ">
 
                                     {currentData.map((applications, index) => (
                                         <ApplicationCard
@@ -171,7 +170,6 @@ export function Dashboard() {
                     </section> : <></>}
 
             </div>
-            <Footer />
         </div>)}
             
         </>

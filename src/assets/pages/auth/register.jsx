@@ -30,7 +30,7 @@ export function Register() {
 
     return (
         <>
-            <div className="hero min-h-screen bg-gray-200">
+            <div className="hero min-h-screen bg-gradient-to-br from-red-600 to-gray-100">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold px-6">&nbsp;</h1>
