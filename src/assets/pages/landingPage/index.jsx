@@ -23,7 +23,7 @@ export default function LandingPage() {
 
     }, []);
 
-    const itemsPerPage = 15; // Number of items to display per page
+    const itemsPerPage = 16; // Number of items to display per page
     const [currentPage, setCurrentPage] = useState(1);
 
     // Calculate the range of items to display based on the current page
@@ -72,18 +72,39 @@ export default function LandingPage() {
             <div className='w-full'>
                 {currentData.length > 0 ?
                     <section className="p-6 my-2 bg-gray-200" id="catalog">
-                        <div className="mx-auto p-4">
-                            <h1 className="text-3xl font-bold text-center" >
-                                All Applications
-                            </h1>
-                            
-                            <h3 className="text-lg text-center">
-                                Our Application was managed by Sinergi Informatika Semen Indonesia
-                            </h3>
+                        <div className="container mx-auto p-4">
+                            <div className="flex justify-between">
+                                <div className="">
+                                    <span className="text-3xl font-bold">All Applications</span>
+                                    <span className="text-lg"><br />Our Application was managed by Sinergi Informatika Semen Indonesia</span>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="join">
+                                        <div>
+                                            <div>
+                                                <input className="input input-bordered join-item" placeholder="Search" />
+                                            </div>
+                                        </div>
+                                        <div className="indicator">
+                                            <span className="indicator-item badge badge-info">new</span>
+                                            <button className="btn btn-primary join-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                            </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <select className="select bg-primary text-base-100">
+                                        <option disabled selected>Filter</option>
+                                        <option>Website</option>
+                                        <option>Dekstop</option>
+                                        <option>Mobile</option>
+                                    </select>
+                                </div>
+                            </div>
 
                             <div>
                                 {/* Render your data here using the currentData array */}
-                                <div className="my-8 grid grid-cols-2 gap-4 md:grid-cols-5">
+                                <div className="my-8 grid grid-cols-2 gap-4 md:grid-cols-4">
 
                                     {currentData.map((applications, index) => (
                                         <ApplicationCard
@@ -119,7 +140,7 @@ export default function LandingPage() {
                                 )}
                             </div>
                         </div>
-                    </section> : <div className="flex justify-center py-20 bg-gray-200"><span className="loading loading-bars loading-lg"></span><span className="text-2xl">&emsp;Loading Data</span></div>}
+                    </section> : <></>}
 
             </div>
         </>

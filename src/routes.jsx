@@ -89,6 +89,17 @@ const routes = [
           path: "/",
           element: <LandingPage />,
         },
+        {
+          name: "Detail App",
+          path: "/application/:id",
+          element: <AppDetail />,
+        },
+        ,
+        {
+          name: "not found",
+          path: `/*`,
+          element: <Navigate to="/dashboard" replace />,
+        },
       ],
     }
   ];

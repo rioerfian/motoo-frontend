@@ -20,12 +20,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/home/*" element={<DefaultLayout />} />
+        <Route path="/*" element={<DefaultLayout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/applications/detail/:id" element={<AppDetail />} />
+        {/* <Route path="/applications/detail/:id" element={<AppDetail />} /> */}
         <Route path="/dashboard/*" element={<AuthLayout />} />
-        <Route path="/*" element={<Navigate to="/home" replace />} />
+        <Route path="/*" element={<Navigate to="/" replace />} />
         {/* <Route path="/dashboard/applications/" element={<Applications />} />
         <Route path="/dashboard/applications/add" element={<ApplicationsAdd />} />
         <Route path="/dashboard/applications/edit/:id" element={<ApplicationsEdit />} />

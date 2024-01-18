@@ -76,7 +76,7 @@ export function Applications() {
 
             })
     }
-       
+
     //run hook useEffect
     useEffect(() => {
         fetchData();
@@ -93,12 +93,18 @@ export function Applications() {
                             <div className="flex items-center p-2"><span className="loading loading-bars loading-md"></span>&emsp;Loading data</div>
                             : <>
                                 <div className='flex justify-between p-2'>
-                                    <Link to="add">
-                                        <button className='btn btn-success btn-sm'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                        </svg>Add
+                                    <div className="flex gap-2">
+                                        <Link to="add">
+                                            <button className='btn btn-success btn-sm'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                            </svg>Add
+                                            </button>
+                                        </Link>
+                                        <button className='btn btn-info btn-sm' onClick={() => document.getElementById('my_modal_2').showModal()}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+                                        </svg>Upload
                                         </button>
-                                    </Link>
+                                    </div>
 
                                     <div className='badge badge-outline text-error'>
                                         *click row for detail
@@ -119,7 +125,7 @@ export function Applications() {
                                     </thead>
                                     <tbody>
                                         {currentData.map((applications, index) => (
-                                            <tr key={applications.id} onClick={() => handleOpen(applications.id)} className="hover:bg-gray-300 hover:shadow-lg">
+                                            <tr key={applications.id} onClick={() => handleOpen(applications.id)} className="hover:bg-gray-300 hover:shadow-lg ">
 
                                                 <td className="px-4 align-middle">
                                                     <div className="flex items-center gap-4">
@@ -229,7 +235,7 @@ export function Applications() {
                                                         </td>
                                                         <td className="">
                                                             <Link to={"//" + el[0]} target="_blank" className="italic underline text-primary">
-                                                                {el[0]} 
+                                                                {el[0]}
                                                             </Link>
                                                         </td>
                                                     </tr>
@@ -254,7 +260,6 @@ export function Applications() {
                                                         <p className="font-normal text-justify py-2">{el[0]} </p>
                                                     </td>
                                                 </tr>)
-
                                             )
                                         )}
                                     </tbody>
@@ -321,9 +326,6 @@ export function Applications() {
 
                     </div>
                 </div>
-
-
-
                 <dialog id="my_modal_1" className="modal">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Delete</h3>
@@ -344,6 +346,26 @@ export function Applications() {
                         </div>
                     </div>
                 </dialog>
+
+                <dialog id="my_modal_2" className="modal">
+                    <div className="modal-box ">
+                        <div className="flex justify-between">
+                            <h3 className="font-bold text-2xl">Upload Data</h3>
+                            <a href="" className="btn btn-info btn-sm">Download Template</a>
+                        </div>
+                        <form className="py-6">
+                            <div className="">Update data via file Excel</div>
+                            <input type="file" className="file-input file-input-sm w-full max-w-xs my-4" />
+                            {/* <br/> */}
+                            <div className="text-error text-xs w-full">important to download template first before submit</div>
+                            <a href="" className="btn btn-success btn-sm mt-2 w-full">Submit</a>
+                        </form>
+                    </div>
+                    <form method="dialog" className="modal-backdrop">
+                        <button>close</button>
+                    </form>
+                </dialog>
+
             </section >) : <div className="flex items-center justify-center min-h-screen bg-secondary"><span className="loading loading-bars loading-lg items-center text-primary"></span><span className="text-2xl font-bold text-primary">&emsp;LOADING</span></div>}
 
         </>
