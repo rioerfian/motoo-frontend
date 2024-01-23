@@ -36,6 +36,7 @@ function AuthLayout() {
 
         (token ? (setLoadPage(true), fetchData()) : navigate('/login'))
 
+
     }, []);
 
 
@@ -60,10 +61,10 @@ function AuthLayout() {
 
             {loadPage && (
                 <div>
-                    <div className="navbar bg-neutral">
+                    <div className="navbar bg-primary p-0">
                         <div className="navbar-start">
                             <div className="dropdown">
-                                <div tabIndex={0} role="button" className="btn btn-ghost text-primary lg:hidden">
+                                <div tabIndex={0} role="button" className="btn btn-ghost text-base-100 lg:hidden">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                                 </div>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -83,9 +84,7 @@ function AuthLayout() {
                             </div>
                             <div className="flex-1 px-2">
                                 <a href="/" className="flex items-center">
-                                    <img src="/img/logo.png" className="w-10 mr-2" />
-                                    <span className="font-bold text-3xl text-primary">MO</span>
-                                    <span className="font-bold text-3xl text-base-100">TOO</span>
+                                    <img src="/img/logo-ne.png" className="w-full sm:w-1/2 md:w-1/3" />
                                 </a>
                             </div>
                         </div>
@@ -126,7 +125,7 @@ function AuthLayout() {
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
                                                 </svg>
                                                 Master Data</summary>
-                                            <ul className='bg-primary rounded-none text-base-100 font-bold' >
+                                            <ul className='bg-secondary rounded-none text-base-100 font-bold' >
 
                                                 <li>
                                                     <Link to={"/dashboard/applications"} className='uppercase'>
@@ -159,17 +158,24 @@ function AuthLayout() {
                             </ul>
                         </div>
                         <div className="navbar-end">
-                            <div className="flex-none hidden md:block">
+                            {user.name && <div className="flex-none hidden md:block">
                                 <ul className="menu menu-horizontal gap-2 font-bold">
-
-
                                     <li className=''>
                                         <details >
-                                            <summary className='bg-primary font-bold text-xs text-base-100' ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                            <summary className='bg-red-400 font-bold text-xs text-base-100' ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                                                 <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clipRule="evenodd" />
                                             </svg>{user.name}</summary>
-                                            <ul className='bg-primary rounded-none text-base-100' >
-                                                <li className='font-bold'>
+                                            <ul className='bg-secondary rounded-none text-base-100' >
+                                                <li className='bg-info font-bold'>
+                                                    <button >
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                        </svg>
+
+                                                        Profile
+                                                    </button>
+                                                </li>
+                                                <li className='bg-error font-bold'>
                                                     <button onClick={logoutHandler}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                                                             <path fillRule="evenodd" d="M16.5 3.75a1.5 1.5 0 0 1 1.5 1.5v13.5a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3V9A.75.75 0 1 0 9 9V5.25a1.5 1.5 0 0 1 1.5-1.5h6ZM5.78 8.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 0 0 1.06-1.06l-1.72-1.72H15a.75.75 0 0 0 0-1.5H4.06l1.72-1.72a.75.75 0 0 0 0-1.06Z" clipRule="evenodd" />
@@ -181,10 +187,11 @@ function AuthLayout() {
                                         </details>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>}
+                            
                         </div>
                     </div>
-                    {page && (<div className='flex px-4 shadow-md'>
+                    {page && (<div className='flex px-4 shadow-md bg-gray-100'>
                         <div className="text-sm breadcrumbs">
                             <ul>
                                 <li>

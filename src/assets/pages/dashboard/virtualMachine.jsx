@@ -82,10 +82,10 @@ export function VirtualMachine() {
         <>{loadPage ? 
         <section className='flex gap-4'>
             <div className={(open) ? "w-full lg:w-9/12" : "w-full"}>
-                <div className="overflow-x-auto p-2">
-                    <h1 className='font-bold p-2 text-xl'>Virtual Machine Table</h1>
+                <div className=" p-2">
+                <h1 className='font-bold text-xl p-2'>Virtual Machine Table</h1>
                     {load === true ?
-                        <div className="flex items-center p-2"><span className="loading loading-bars loading-md"></span>&emsp;Loading data</div>
+                        <div className="flex items-center p-2"><span className="loading loading-infinity loading-md"></span>&emsp;Loading data</div>
                         : <>
                             <div className='flex justify-between p-2'>
                                 <Link to="add">
@@ -95,13 +95,13 @@ export function VirtualMachine() {
                                     </button>
                                 </Link>
                             </div>
-                            <table className="w-full table-xs overflow-x-auto">
+                            <table className="w-full table-xs table">
                                 <thead>
                                     <tr>
                                         {["environment", "name", "ip_address", "server_migration"].map(
                                             (el) => (
                                                 <td key={el}
-                                                    className="text-left font-semibold capitalize text-sm border-y border-neutral py-2">
+                                                    className="text-left font-semibold capitalize text-sm border-b border-neutral py-2">
                                                     {el}
                                                 </td>
                                             )
@@ -112,8 +112,8 @@ export function VirtualMachine() {
                                     {currentData.map((virtualMachine, index) => (
                                         <tr key={index} onClick={() => handleOpen(virtualMachine.id)} className="hover:bg-gray-300 border-b border-gray-400">
                                             <td>
-                                                {virtualMachine.environment === "production" && (<div className="badge badge-error font-semibold capitalize">{virtualMachine.environment}</div>)}
-                                                {virtualMachine.environment === "development" && (<div className="badge badge-info font-semibold capitalize">{virtualMachine.environment}</div>)}
+                                                {virtualMachine.environment === "production" && (<div className="badge badge-warning font-semibold capitalize">{virtualMachine.environment}</div>)}
+                                                {virtualMachine.environment === "development" && (<div className="badge badge-accent font-semibold capitalize">{virtualMachine.environment}</div>)}
                                                 
                                             </td>
 
@@ -156,8 +156,8 @@ export function VirtualMachine() {
 
                 </div>
             </div>
-            <div className={(open) ? "hidden md:block lg:w-3/12 shadow-xl p-4 min-h-screen" : "hidden"}>
-                <div className="flex justify-between my-2 pb-4 ">
+            <div className={(open) ? "hidden md:block lg:w-3/12 shadow-xl px-2 py-4 min-h-screen bg-gray-200" : "hidden"}>
+                <div className="flex justify-between p-2 bg-gray-200">
                     <span className='text-2xl font-bold'>Detail</span>
                     {virtualMachineSpecified.id === id && <div className="flex gap-1">
                         <Link to={`edit/${virtualMachineSpecified.id}`}>
@@ -176,7 +176,7 @@ export function VirtualMachine() {
 
                 </div>
 
-                <div role="tablist" className="tabs tabs-boxed bg-base-100 mt-4">
+                <div role="tablist" className="tabs tabs-boxed mt-4 bg-gray-200">
                     <input type="radio" name="my_tabs_2" role="tab" className="tab font-bold " aria-label="Spesifikasi" defaultChecked />
                     <div role="tabpanel" className="tab-content rounded-box">
                         <div className="overflow-x-auto py-4">
@@ -234,7 +234,7 @@ export function VirtualMachine() {
                     </div>
                 </div>
             </dialog>
-        </section >:<div className="flex items-center justify-center min-h-screen bg-secondary"><span className="loading loading-bars loading-lg items-center text-primary"></span><span className="text-2xl font-bold text-primary">&emsp;LOADING</span></div>}
+        </section >:<div className="flex items-center justify-center min-h-screen bg-base-100"><span className="loading loading-infinity loading-lg items-center text-primary animate-bounce"></span><span className="text-2xl animate-bounce font-bold text-primary">&nbsp;Loading</span></div>}
 
         </>
     )

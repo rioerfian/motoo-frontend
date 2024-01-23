@@ -31,7 +31,7 @@ function DefaultLayout() {
 
   return (
     <div>
-      <div className="navbar bg-base-100 p-4">
+      <div className="navbar p-4">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost text-primary lg:hidden">
@@ -81,6 +81,7 @@ function DefaultLayout() {
             </Link></li>
           </ul>
         </div> */}
+        
         <div className="navbar-end">
           <ul className="">
             <li>{token ? <Link to={"/dashboard"} >
@@ -90,7 +91,7 @@ function DefaultLayout() {
                 </svg>
 
                 {user.name}</button>
-            </Link> : <Link to={"/login"} className='btn btn-primary font-bold'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            </Link> : <Link to={"/login"} className='btn bg-gradient-to-r from-blue-300 to-red-300 font-bold'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
             </svg>
               Login</Link>}

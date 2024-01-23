@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export   function NavbarSimple() {
+export function NavbarSimple() {
     return (
         <>
             <div className="navbar px-8">

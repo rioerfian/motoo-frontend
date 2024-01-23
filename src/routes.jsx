@@ -11,6 +11,7 @@ import AuthLayout from "./assets/layouts/authenticated";
 import { Navigate } from "react-router-dom";
 import { VirtualMachineAdd } from "./assets/pages/dashboard/virtualMachineAdd";
 import LandingPage from "./assets/pages/landingPage";
+import { VirtualMachineEdit } from "./assets/pages/dashboard/virtualMachineEdit";
 
 const routes = [
     {
@@ -72,7 +73,7 @@ const routes = [
         {
           name: "virtual machines edit",
           path: `/virtual_machines/edit/:id`,
-          element: <VirtualMachine />,
+          element: <VirtualMachineEdit />,
         },
         {
           name: "not found",

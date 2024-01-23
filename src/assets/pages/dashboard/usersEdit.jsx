@@ -66,7 +66,8 @@ export function UserEdit() {
     };
     return (
         <>
-            <form onSubmit={handleSubmit} className="p-4">
+            <form onSubmit={handleSubmit} className="container mx-auto p-4">
+            <div className="font-bold text-lg">Edit User Data</div>
                 <div className="grid grid-cols-1 gap-4 py-2">
                     <div >
                         <label className="form-control w-full ">

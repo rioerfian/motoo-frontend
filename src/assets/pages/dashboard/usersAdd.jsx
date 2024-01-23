@@ -50,8 +50,8 @@ export function UserAdd() {
     };
     return (
         <>{loadPage ?
-        <form onSubmit={handleSubmit} className="m-4 p-4 ">
-        <h2 className="font-bold text-lg my-2">Add User Data</h2>
+        <form onSubmit={handleSubmit} className="container mx-auto p-4">
+        <div className="font-bold text-lg">Add User Data</div>
             <div className="grid grid-cols-1 gap-4 py-2">
                 <div >
                     <label className="form-control w-full ">
@@ -111,7 +111,7 @@ export function UserAdd() {
                     </button>
                 </Link>
             </div>
-        </form>:<div className="flex items-center justify-center min-h-screen bg-secondary"><span className="loading loading-bars loading-lg items-center text-primary"></span><span className="text-2xl font-bold text-primary">&emsp;LOADING</span></div>}
+        </form>:<div className="flex items-center justify-center min-h-screen bg-base-100"><span className="loading loading-infinity loading-lg items-center text-primary animate-bounce"></span><span className="text-2xl font-bold animate-bounce text-primary">&nbsp;Loading</span></div>}
 
         </>
     )

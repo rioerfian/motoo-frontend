@@ -39,13 +39,9 @@ export function ApplicationCard({ img, name, id, status, category, platform, gro
                         {category && <div className="badge bg-[#d1d5db] text-neutral font-bold text-xs">{category}</div>}
                         {group_area && <div className="badge badge-info p-1 text-xs font-bold">{group_area}</div>}
                     </div>
-                    <div className="rating rating-xs join py-1">
-                        <input type="radio" name="rating-5" className="mask mask-star-2 bg-accent" />
-                        <input type="radio" name="rating-5" className="mask mask-star-2 bg-accent" />
-                        <input type="radio" name="rating-5" className="mask mask-star-2 bg-accent" />
-                        <input type="radio" name="rating-5" className="mask mask-star-2 bg-accent" />
-                        <input type="radio" name="rating-5" className="mask mask-star-2 bg-accent" />
-                        <span className="text-xs"> &nbsp;(4.5)</span>
+                    <div className="rating rating-sm join py-1">
+                        <input type="radio" name="rating-app" className="mask mask-star-2 bg-accent" />
+                        <span className="text-sm"> &nbsp;(4.5)</span>
                     </div>
                 </div>
             </div>

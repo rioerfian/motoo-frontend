@@ -44,7 +44,7 @@ export function Applications() {
 
 
 
-    const itemsPerPage = 20; // Number of items to display per page
+    const itemsPerPage = 15; // Number of items to display per page
     const [currentPage, setCurrentPage] = useState(1);
 
     // Calculate the range of items to display based on the current page
@@ -87,20 +87,20 @@ export function Applications() {
         <>{loadPage ? (
             <section className='flex gap-4'>
                 <div className={(open) ? "w-full lg:w-9/12" : "w-full"}>
-                    <div className="overflow-x-auto rounded-xl p-2">
+                    <div className=" p-2">
                         <h1 className='font-bold text-xl p-2'>Applications Table</h1>
                         {load === true ?
-                            <div className="flex items-center p-2"><span className="loading loading-bars loading-md"></span>&emsp;Loading data</div>
-                            : <>
+                            <div className="flex items-center p-2"><span className="loading loading-infinity loading-md"></span>&emsp;Loading data</div>
+                            : <div >
                                 <div className='flex justify-between p-2'>
                                     <div className="flex gap-2">
                                         <Link to="add">
-                                            <button className='btn btn-success btn-sm'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5">
+                                            <button className='btn btn-success btn-sm'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 animate-bounce">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                             </svg>Add
                                             </button>
                                         </Link>
-                                        <button className='btn btn-info btn-sm' onClick={() => document.getElementById('my_modal_2').showModal()}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5">
+                                        <button className='btn btn-info btn-sm' onClick={() => document.getElementById('my_modal_2').showModal()}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 animate-bounce">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
                                         </svg>Upload
                                         </button>
@@ -125,7 +125,7 @@ export function Applications() {
                                     </thead>
                                     <tbody>
                                         {currentData.map((applications, index) => (
-                                            <tr key={applications.id} onClick={() => handleOpen(applications.id)} className="hover:bg-gray-300 hover:shadow-lg ">
+                                            <tr key={applications.id} onClick={() => handleOpen(applications.id)} className="hover:bg-gray-300 hover:shadow-lg">
 
                                                 <td className="px-4 align-middle">
                                                     <div className="flex items-center gap-4">
@@ -133,7 +133,7 @@ export function Applications() {
                                                         {/* {(applications.image === null) ? <img src="/img/sig.png" alt="sig" className="h-12" /> : <img className="h-12" src={"/img/" + applications.image} />} */}
 
                                                         <div>
-                                                            <p className="font-bold capitalize text-md"
+                                                            <p className="font-semibold text-md capitalize "
                                                             >
                                                                 {applications.name}
                                                             </p>
@@ -158,9 +158,9 @@ export function Applications() {
 
                                                 <td>
                                                     {(applications.status === "UP") ? (
-                                                        <div className="badge badge-success">UP</div>
+                                                        <div className="badge badge-success">Up</div>
                                                     ) : (
-                                                        <div className="badge badge-error">DOWN</div>
+                                                        <div className="badge badge-error">Down</div>
                                                     )}
                                                 </td>
                                             </tr>
@@ -171,7 +171,7 @@ export function Applications() {
 
                                     <p>Total data {applications.length ? applications.length : 0} entries</p>
 
-                                    {applications.length > 20 && (<div className="join">
+                                    {applications.length > 15 && (<div className="join">
                                         <button className="join-item btn btn-primary btn-sm p-1 rounded-none" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
                                         </svg>
@@ -184,7 +184,7 @@ export function Applications() {
                                     </div>)}
 
                                 </div>
-                            </>}
+                            </div>}
 
                     </div>
                 </div>
@@ -195,13 +195,13 @@ export function Applications() {
                         <h1 className='text-2xl font-bold'>Detail</h1>
                         {applicationSpecified.id === id && <div className="flex gap-1">
                             <Link to={`edit/${applicationSpecified.id}`}>
-                                <button className="btn btn-warning btn-sm p-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5">
+                                <button className="btn btn-warning btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 ">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                                     </svg>Edit</button>
                             </Link>
-                            <button className="btn btn-primary btn-sm p-1" onClick={() => document.getElementById('my_modal_1').showModal()}>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5">
+                            <button className="btn btn-error btn-sm p-1" onClick={() => document.getElementById('my_modal_1').showModal()}>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 ">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                                 </svg>Delete
                             </button>
@@ -211,11 +211,17 @@ export function Applications() {
                     </div>
 
                     <div role="tablist" className="tabs tabs-boxed mt-4 bg-gray-200 ">
-                        <input type="radio" name="my_tabs_2" role="tab" className="tab font-bold" aria-label="Spesifikasi" defaultChecked />
-                        <div role="tabpanel" className="tab-content border border-secondary px-2">
-                            <div className="flex justify-between items-start">
+                        <input type="radio" name="my_tabs_2" role="tab" className="tab tab-secondary font-bold" aria-label="Spesifikasi" defaultChecked />
+                        <div role="tabpanel" className="tab-content border border-primary px-2">
+                            <div className="flex justify-between items-center">
                                 <img src="/img/sig.png" alt="sig" className="h-24" />
                                 {/* {(applicationSpecified.image === null) ? <img src="/img/sig.png" alt="sig" className="h-28" /> : <img src={"/img/" + applicationSpecified.image} className="h-24" />} */}
+                                <div className="btn btn-info btn-xs  text-white capitalize" onClick={() => document.getElementById('modal-vm').showModal()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 0 0-.12-1.03l-2.268-9.64a3.375 3.375 0 0 0-3.285-2.602H7.923a3.375 3.375 0 0 0-3.285 2.602l-2.268 9.64a4.5 4.5 0 0 0-.12 1.03v.228m19.5 0a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3m19.5 0a3 3 0 0 0-3-3H5.25a3 3 0 0 0-3 3m16.5 0h.008v.008h-.008v-.008Zm-3 0h.008v.008h-.008v-.008Z" />
+                                    </svg>
+                                    Show VM</div>
+
                             </div>
                             <div className=" ">
                                 <table className="table table-bordered table-xs">
@@ -230,11 +236,11 @@ export function Applications() {
                                         {[[applicationSpecified.url_prod, "url_prod"], [applicationSpecified.url_dev, "url_dev"]].map(
                                             (el) => (
                                                 (el[0] &&
-                                                    <tr className="my-2 border border-secondary" key={el}>
-                                                        <td className="font-bold capitalize">{el[1]}
+                                                    <tr className="my-2" key={el}>
+                                                        <td className="font-bold capitalize bg-gray-300">{el[1]}
                                                         </td>
-                                                        <td className="">
-                                                            <Link to={"//" + el[0]} target="_blank" className="italic underline text-primary">
+                                                        <td className="border border-gray-300">
+                                                            <Link to={"//" + el[0]} target="_blank" className="italic underline text-primary ">
                                                                 {el[0]}
                                                             </Link>
                                                         </td>
@@ -245,9 +251,9 @@ export function Applications() {
 
                                         {[[applicationSpecified.name, "name"], [applicationSpecified.category, "category"], [applicationSpecified.platform, "platform"], [applicationSpecified.login_app, "login app"], [applicationSpecified.group, "group"], [applicationSpecified.group_area, "group area"], [applicationSpecified.business_process, "business"], [applicationSpecified.priority, "priority"], [applicationSpecified.impact, "impact"], [applicationSpecified.status, "status"], [applicationSpecified.frontend, "frontend"], [applicationSpecified.backend, "backend"], [applicationSpecified.database, "database"], [applicationSpecified.web_server, "web server"], [applicationSpecified.db_server, "db server"], [applicationSpecified.db_connection_path, "DB Connect"], [applicationSpecified.sap_connection_path, "SAP Connect"], [applicationSpecified.pic_sisi, "PIC SISI"], [applicationSpecified.pic_ict, "PIC ICT"]].map(
                                             (el) => (
-                                                (el[0] && <tr key={el}>
-                                                    <td className="font-bold capitalize bg-gray-200">{el[1]}</td>
-                                                    <td className="border border-gray-200">{el[0]} </td>
+                                                (el[0] && <tr key={el} >
+                                                    <td className="font-bold capitalize bg-gray-300">{el[1]}</td>
+                                                    <td className="border border-gray-300">{el[0]} </td>
                                                 </tr>)
                                             )
                                         )}
@@ -255,7 +261,7 @@ export function Applications() {
                                         {[[applicationSpecified.description, "description"], [applicationSpecified.user_login, "User Login"], [applicationSpecified.notes, "Notes"]].map(
                                             (el) => (
                                                 (el[0] && <tr key={el} >
-                                                    <td className="font-bold capitalize " colSpan={2}>{el[1]}
+                                                    <td className="font-bold capitalize bg-gray-300 " colSpan={2}>{el[1]}
 
                                                         <p className="font-normal text-justify py-2">{el[0]} </p>
                                                     </td>
@@ -270,24 +276,27 @@ export function Applications() {
                         </div>
 
                         <input type="radio" name="my_tabs_2" role="tab" className="tab font-bold " aria-label="VM" />
-                        <div role="tabpanel" className="tab-content border border-gray-300">
+                        <div role="tabpanel" className="tab-content ">
                             <div className="join join-vertical w-full">
                                 {virtualMachine.map((el, index) =>
-                                (el.app_id == id ? <div key={index} className="collapse collapse-arrow join-item border border-gray-400 ">
-                                    <input type="radio" name="my-accordion-4" />
-                                    <div className="collapse-title text-sm font-semibold">
-                                        {el.environment === "production" && (<span className="badge badge-error font-bold rounded-none p-1">P</span>)}
-                                        {el.environment === "development" && (<span className="badge badge-info font-bold rounded-none p-1">D</span>)}
-                                        <span> &nbsp;{el.name}</span>
+                                (el.app_id == id ?
+                                    <div key={index} className="collapse collapse-arrow join-item">
+                                        <input type="radio" name="my-accordion-4" />
+                                        <div className="collapse-title text-sm font-semibold">
+                                            {el.environment === "production" && (<span className="badge badge-warning font-bold rounded-none p-1">P</span>)}
+                                            {el.environment === "development" && (<span className="badge badge-accent font-bold rounded-none p-1">D</span>)}
+                                            <span> &nbsp;{el.name}</span>
+                                        </div>
+                                        <div className="collapse-content text-justify">
+                                            <p><b>Server</b> : {el.server_migration}</p>
+                                            <p><b>IP Address</b> : {el.ip_address}</p>
+                                            <p><b>Environment</b> : <span className="badge badge-secondary">{el.environment}</span></p>
+                                            <p><b>Description</b> : {el.description}</p>
+                                            <p><b>Notes</b> : {el.notes}</p>
+                                        </div>
                                     </div>
-                                    <div className="collapse-content text-justify">
-                                        <p><b>Description</b> : {el.description}</p>
-                                        <p><b>Server</b> : {el.server_migration}</p>
-                                        <p><b>IP Address</b> : {el.ip_address}</p>
-                                        <p><b>Environment</b> : {el.environment}</p>
-                                        <p><b>Notes</b> : {el.notes}</p>
-                                    </div>
-                                </div> : <div key={index} ></div>)
+
+                                    : <div key={index} ></div>)
 
                                 )}
 
@@ -366,7 +375,54 @@ export function Applications() {
                     </form>
                 </dialog>
 
-            </section >) : <div className="flex items-center justify-center min-h-screen bg-secondary"><span className="loading loading-bars loading-lg items-center text-primary"></span><span className="text-2xl font-bold text-primary">&emsp;LOADING</span></div>}
+                <dialog id="modal-vm" className="modal">
+                    <div className="modal-box max-w-6xl w-full">
+                        <h3 className="font-bold text-xl mb-2">Virtual Machine</h3>
+                        <div className="join join-vertical w-full">
+                            {virtualMachine.map((el, index) =>
+                            (el.app_id == id ?
+                                <div key={index} className="collapse collapse-arrow join-item">
+                                    <input type="radio" name="my-accordion-4" />
+                                    <div className="collapse-title text-sm font-semibold">
+                                        {el.environment === "production" && (<span className="badge badge-warning font-bold rounded-none p-1">P</span>)}
+                                        {el.environment === "development" && (<span className="badge badge-accent font-bold rounded-none p-1">D</span>)}
+                                        <span> &nbsp;{el.name}</span>
+                                    </div>
+                                    <div className="collapse-content text-justify">
+                                        <table className="table table-bordered">
+                                            <tr className="border border-secondary">
+                                                <td>Server</td>
+                                                <td>IP Address</td>
+                                                <td>Environment</td>
+                                                <td>Description</td>
+                                                <td>Notes</td>
+                                            </tr>
+                                            <tr className="border border-secondary">
+                                                <td >{el.server_migration}</td>
+                                                <td >{el.ip_address}</td>
+                                                <td ><span className="badge badge-secondary">{el.environment}</span></td>
+                                                <td >{el.description}</td>
+                                                <td >{el.notes}</td>
+
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                                : <div key={index} ></div>)
+
+                            )}
+
+
+                        </div>
+                    </div>
+                    <form method="dialog" className="modal-backdrop">
+                        <button>close</button>
+                    </form>
+                </dialog>
+
+            </section >) : <div className="flex items-center justify-center min-h-screen bg-base-100 "><span className="loading loading-infinity loading-lg items-center text-primary animate-bounce"></span><span className="animate-bounce text-xl font-bold text-primary capitalize">&nbsp;loading</span></div>}
 
         </>
     )

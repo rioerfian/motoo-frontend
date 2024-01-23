@@ -10,21 +10,21 @@ export default {
         mytheme: {
           primary: "#e11d48",
 
-          secondary: "#a8a29e",
+          secondary: "#3D3B40",
 
-          accent: "#f59e0b",
+          accent: "#0081b7",
 
-          neutral: "#03080f",
+          neutral: "#010101",
 
           "base-100": "#f7fafc",
 
-          info: "#22d3ee",
+          info: "#0098cf",
 
-          success: "#4ade80",
+          success: "#00af8c",
 
-          warning: "#facc15",
+          warning: "#ffc500",
 
-          error: "#e11d48",
+          error: "#d90034",
         },
       },
     ],
